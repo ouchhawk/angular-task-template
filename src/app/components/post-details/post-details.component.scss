@@ -21,3 +21,28 @@ h5{
         }
     }
 }
+
+.comment{
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+    background-color: lightgray;
+    padding-bottom: 10px;
+
+    .profile-picture{
+        grid-column-start: 1 / 2;
+        padding: 10px;
+    }
+
+    .rest-of-the-comment{
+        grid-column-start: 2 / 12;
+        padding: 10px;
+
+        .username{
+            font-weight: bold;
+        }
+        .comment-body{
+            font-size: small;
+        }
+    }
+}
+

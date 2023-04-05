@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/post';
+import { Comment } from 'src/app/models/comment';
 import { User } from 'src/app/models/user';
 import { CommentService } from 'src/app/services/comment.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-post-details',
@@ -15,23 +17,30 @@ export class PostDetailsComponent implements OnInit{
   userList: User[] = [];
   commentList: Comment[] = [];
   filteredCommentList : Comment[] = []; 
-
-  private commentCount: number;
   
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.getComments();
-    this.filteredCommentList = this.filterComments(this.post.id);
+    this.getUsers();
   }
   
   getComments() {
-    // let commentList: Comment[] = this.commentService.getComments();
+    this.commentList = this.commentService.getComments().filter(comment => comment.id === this.post.id);
+  };
+  
+  getUsers() {
+    this.userList = this.userService.getUsers();
   };
 
-  filterComments(id: number){
-     let arr = this.commentList.filter(x => id === 1);
-     return arr;
+  getCommentOwner(userId: number){
+    const usr =  this.userList.filter(user => user.id === userId)[0];
+    return usr;
+  }
+
+  getPostOwner(userId: number = this.post.userId){
+    const usr =  this.userList.filter(user => user.id === this.post.userId)[0];
+    return usr;
   }
 
 }

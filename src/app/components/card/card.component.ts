@@ -9,12 +9,12 @@ import { PostDetailsComponent } from '../post-details/post-details.component';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent{
+export class CardComponent {
 
   @Input() post: Post;
 
   constructor(private modalService: NgbModal) { }
-  
+
   onClickShowModal(post: Post) {
     const modalRef = this.modalService.open(PostDetailsComponent, { scrollable: true });
     modalRef.componentInstance.post = post;

@@ -6,9 +6,7 @@ const dataJson = require('../../resources/comments.json');
   providedIn: 'root'
 })
 export class CommentService {
-
-  constructor() { }
-
+  
   getComments(): Comment[] {
     const comments: Comment[] = dataJson;
     return comments;

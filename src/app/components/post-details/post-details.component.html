@@ -5,19 +5,33 @@
     <div class="image">
         <img class="card-img-top" src="https://dummyimage.com/320x240/000/fff" alt="Card image cap">
     </div>
-
-
     <div class="info">
         <div class="title">
-            {{this.post.title}}
+            {{this.post.title}} ({{this.getPostOwner(this.post.userId).name}})
         </div>
         <div class="body">
             {{this.post.body}}
         </div>
     </div>
-    
 </div>
 
+<h5>Comments ({{this.commentList.length}})</h5>
+<div *ngFor="let comment of this.commentList">
+    <div class="comment">
+        <div class="profile-picture">
+            <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="Profile Picture">
+        </div>
 
-Comments ({{this.filteredCommentList.length}})
-
+        <div class="rest-of-the-comment">
+            <div class="username">
+                {{this.getCommentOwner(comment.userId).name}}
+            </div>
+            <div>
+                {{comment.name}}
+            </div>
+            <div class="comment-body">
+                {{comment.body}}
+            </div>
+        </div>
+    </div>
+</div>

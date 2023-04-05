@@ -6,8 +6,7 @@ const dataJson = require('../../resources/posts.json');
   providedIn: 'root'
 })
 export class PostService {
-  constructor() {}
-
+  
   getPosts(): Post[] {
     const posts: Post[] = dataJson;
     return posts;
