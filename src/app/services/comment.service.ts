@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HelperService } from './helper.service';
-import { Observable } from 'rxjs/internal/Observable';
-import { HttpClient } from "@angular/common/http";
-import { map } from 'rxjs';
+import { Comment } from '../models/comment';
 const dataJson = require('../../resources/comments.json');
 
 @Injectable({
@@ -10,14 +7,10 @@ const dataJson = require('../../resources/comments.json');
 })
 export class CommentService {
 
-  constructor(private httpClient: HttpClient, private helperService: HelperService) { }
+  constructor() { }
 
-  getComments(): Observable<any[]> {
-    console.log(dataJson);
-    return this.httpClient.get('../../resources/posts.json').pipe(
-      map((response: any) => {
-        return response;
-      })
-    );
+  getComments(): Comment[] {
+    const comments: Comment[] = dataJson;
+    return comments;
   }
 }

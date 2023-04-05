@@ -18,9 +18,7 @@ export class PostListComponent implements OnInit{
   constructor(private postService: PostService) { }
 
   getPosts() {
-    this.postList = this.postService.getPosts();
-    console.log(this.postList);
-    
+    this.postList = this.postService.getPosts();    
     };
 
 }

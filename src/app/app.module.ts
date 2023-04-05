@@ -9,6 +9,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContainerComponent } from './components/container/container.component';
 import { CardComponent } from './components/card/card.component';
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CardComponent } from './components/card/card.component';
     PostListComponent,
     HeaderComponent,
     ContainerComponent,
-    CardComponent
+    CardComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,

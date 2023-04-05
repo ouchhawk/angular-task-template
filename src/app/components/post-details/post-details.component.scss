@@ -1,0 +1,23 @@
+h5{
+    display: flex;
+    align-items: center;
+}
+
+.post-content{
+    display: flex;
+
+    .image{
+        width: 40%;
+    }
+
+    .info{
+        display: flex;
+        flex-direction: column;
+        padding: 0px 20px;
+        width: 60%;
+    
+        .title{
+            font-weight: bold;
+        }
+    }
+}
