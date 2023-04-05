@@ -1,6 +1,6 @@
 <div class="card-container">
-    <div class="card-wrapper" *ngFor="let item of postList | slice: (currentPage-1) * this.pageSize : currentPage * pageSize; ">
-      <app-card [post]="item"></app-card>
+    <div class="card-wrapper" *ngFor="let post of postList | slice: (currentPage-1) * this.pageSize : currentPage * pageSize; ">
+      <app-card [post]="post"></app-card>
     </div>
 </div>
 
